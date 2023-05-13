@@ -6,5 +6,6 @@
 
         2. find point for each tick 
         3. draw ticks
+        
  */
 
