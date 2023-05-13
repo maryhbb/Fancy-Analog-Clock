@@ -5,8 +5,9 @@
         3. add attributes on line element
 
         4. find point for each tick 
-            function to convert degree to radian
+            need a function to convert degree to radian
             declare fix offset
+
         5. draw ticks
 
  */
@@ -27,9 +28,7 @@ function createLine(p1, p2, strong) {
 
 // find ticks points
 
-const degToRad = (deg) => {
-  (deg * Math.PI) / 180;
-}; // find radian of each degree since Math functions work only with radians)
+const degToRad = (deg) => (deg * Math.PI) / 180; // find radian of each degree since Math functions work only with radians)
 
 const offset = { x: 200, y: 200 }; // we are a fix offset
 
@@ -40,4 +39,14 @@ function findPoint(r, deg, offset) {
   let y = offset ? offset.y + r * Math.sin(rad) : r * Math.sin(rad); // To find y, the formula is radius * sin (deg)
 
   return { x, y };
+}
+
+// we need drawing tick with points
+
+function drawTick(deg){
+const strong = deg % 30 == 0 ;
+const p1 = findPoint(100, deg, offset);
+const p2 = findPoint (strong ? 90 : 95, deg, offset);
+
+createLine(p1, p2, strong)
 }
