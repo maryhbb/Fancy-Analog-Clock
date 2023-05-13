@@ -27,7 +27,17 @@ function createLine(p1, p2, strong) {
 
 // find ticks points
 
-const degToRad = (deg) => {(deg * Math.PI) / 180}; // find radian of each degree since Math functions work only with radians)
+const degToRad = (deg) => {
+  (deg * Math.PI) / 180;
+}; // find radian of each degree since Math functions work only with radians)
 
-const offset = {x: 200, y: 200}; // we are a fix offset
+const offset = { x: 200, y: 200 }; // we are a fix offset
 
+function findPoint(r, deg, offset) {
+  const rad = degToRad(deg);
+
+  let x = offset ? offset.x + r * Math.cos(rad) : r * Math.cos(rad); // To find x, the formula is radius * cos (deg), but because math functions require radians as input, we need to convert the angle from degrees to radians first.
+  let y = offset ? offset.y + r * Math.sin(rad) : r * Math.sin(rad); // To find y, the formula is radius * sin (deg)
+
+  return { x, y };
+}
