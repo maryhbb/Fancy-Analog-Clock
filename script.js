@@ -12,6 +12,7 @@
  */
 
 //create line element
+
 function createLine(p1, p2, strong) {
   const svgEl = document.querySelector("svg"); // get svg Element
   const lineEl = document.createElementNS("http://www.w3.org/2000/svg", line); //create line Element
@@ -23,3 +24,10 @@ function createLine(p1, p2, strong) {
   lineEl.setAttribute("stroke", "black");
   lineEl.setAttribute("stroke-width", strong ? 2.5 : 1);
 }
+
+// find ticks points
+
+const degToRad = (deg) => {(deg * Math.PI) / 180}; // find radian of each degree since Math functions work only with radians)
+
+const offset = {x: 200, y: 200}; // we are a fix offset
+
