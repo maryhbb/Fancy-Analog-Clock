@@ -50,26 +50,24 @@ for (let deg = 0; deg < 360; deg += 6) {
   drawTick(deg);
 }
 
-
 // find current Time
 
-const hourEl =  document.querySelector("#hour");
+const hourEl = document.querySelector("#hour");
 const minuteEl = document.querySelector("#minute");
 const secondEl = document.querySelector("#second");
 
-function updateClock(){
+function updateClock() {
+  const hour = new Date().getHours();
+  const minute = new Date().getMinutes();
+  const second = new Date().getSeconds();
 
-    const hour = new Date().getHours();
-    const minute = new Date().getMinutes();
-    const second = new Date().getSeconds();
+  const hourDeg = hour * 30;
+  const minuteDeg = minute * 6;
+  const secondDeg = second * 6;
 
-    const hourDeg = (hour / 12) * 360;
-    const minuteDeg = (minute / 60) * 360;
-    const secondDeg = (second / 60) * 360;
-
-    hourEl.style.transform = `rotate(${hourDeg}deg)`
-    minuteEl.style.transform = `rotate(${minuteDeg}deg)`
-    secondEl.style.transform = `rotate(${secondDeg}deg)`
+  hourEl.style.transform = `rotate(${hourDeg}deg)`;
+  minuteEl.style.transform = `rotate(${minuteDeg}deg)`;
+  secondEl.style.transform = `rotate(${secondDeg}deg)`;
 }
 
-setInterval(updateClock, 100);
+setInterval(updateClock, 1000);
