@@ -49,3 +49,11 @@ function drawTick(deg) {
 for (let deg = 0; deg < 360; deg += 6) {
   drawTick(deg);
 }
+
+
+// find current Time
+
+const hourEl =  document.querySelector("#hour");
+const minuteEl = document.querySelector("#minute");
+const secondEl = document.querySelector("#second");
+
