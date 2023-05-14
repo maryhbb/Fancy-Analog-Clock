@@ -10,4 +10,4 @@ https://github.com/maryhbb/Fancy-Analog-Clock
 
 ## Screenshot
 
-![](images/timer.png)
+![](images/Fancy-Analog-Clock.png)
