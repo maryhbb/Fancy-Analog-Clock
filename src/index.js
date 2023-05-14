@@ -83,7 +83,7 @@ function updateClock() {
   const minute = new Date().getMinutes();
   const second = new Date().getSeconds();
 
-  const hourDeg = hour * 30;
+  const hourDeg = hour * 30 + 30/ 60 * minute;
   const minuteDeg = minute * 6;
   const secondDeg = second * 6;
 
