@@ -23,8 +23,8 @@ function createLine(p1, p2, strong) {
   lineEl.setAttribute("y1", p1.y);
   lineEl.setAttribute("x2", p2.x);
   lineEl.setAttribute("y2", p2.y);
-  lineEl.setAttribute("stroke", "black");
-  lineEl.setAttribute("stroke-width", strong ? 2.5 : 1);
+  lineEl.setAttribute("stroke", strong ? "#333" : "#888");
+  lineEl.setAttribute("stroke-width", strong ? 4 : 3);
 }
 
 // find ticks points
@@ -41,7 +41,7 @@ function findPoint(r, deg) {
 function drawTick(deg) {
   const strong = deg % 30 == 0;
   const p1 = findPoint(100, deg);
-  const p2 = findPoint(strong ? 90 : 95, deg);
+  const p2 = findPoint(strong ? 85 : 90, deg);
 
   createLine(p1, p2, strong);
 }
