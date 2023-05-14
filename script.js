@@ -13,6 +13,15 @@
 
  */
 
+// find ticks points
+
+const degToRad = (deg) => (deg * Math.PI) / 180; // find radian of each degree since Math functions work only with radians)
+
+function findPoint(r, deg) {
+  const rad = degToRad(deg);
+  return { x: r * Math.cos(rad), y: r * Math.sin(rad) }; // To find x, the formula is radius * cos (deg) and   // To find y, the formula is radius * sin (deg), but because math functions require radians as input, we need to convert the angle from degrees to radians first.
+}
+
 //create line element
 
 function createLine(p1, p2, strong) {
@@ -27,19 +36,31 @@ function createLine(p1, p2, strong) {
   lineEl.setAttribute("stroke-width", strong ? 4 : 3);
 }
 
-// find ticks points
+//create text element
 
-const degToRad = (deg) => (deg * Math.PI) / 180; // find radian of each degree since Math functions work only with radians)
-
-function findPoint(r, deg) {
-  const rad = degToRad(deg);
-  return { x: r * Math.cos(rad), y: r * Math.sin(rad) }; // To find x, the formula is radius * cos (deg) and   // To find y, the formula is radius * sin (deg), but because math functions require radians as input, we need to convert the angle from degrees to radians first.
+function createText(x, y, text) {
+  const svgEl = document.querySelector("svg");
+  const textEl = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  svgEl.prepend(textEl);
+  textEl.setAttribute("x", x);
+  textEl.setAttribute("y", y);
+  textEl.textContent = text;
+  textEl.classList.add("text");
 }
 
-// now drawing ticks with points
+//  drawing text with points
+
+function drawText(deg) {
+  if (deg % 90 === 0) {
+    const { x, y } = findPoint(75, deg);
+    createText(x, y, (deg + 90) / 30);
+  }
+}
+
+//  drawing ticks with points
 
 function drawTick(deg) {
-  const strong = deg % 30 == 0;
+  const strong = deg % 30 === 0;
   const p1 = findPoint(100, deg);
   const p2 = findPoint(strong ? 85 : 90, deg);
 
@@ -48,6 +69,7 @@ function drawTick(deg) {
 
 for (let deg = 0; deg < 360; deg += 6) {
   drawTick(deg);
+  drawText(deg);
 }
 
 // find current Time
