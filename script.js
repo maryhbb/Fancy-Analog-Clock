@@ -6,9 +6,10 @@
 
         4. find point for each tick 
             need a function to convert degree to radian
-            declare fix offset
 
         5. draw ticks
+
+        6. find Current Time
 
  */
 
@@ -31,14 +32,8 @@ function createLine(p1, p2, strong) {
 const degToRad = (deg) => (deg * Math.PI) / 180; // find radian of each degree since Math functions work only with radians)
 
 function findPoint(r, deg) {
-  //x and y is offset
-
   const rad = degToRad(deg);
-
-  // To find x, the formula is radius * cos (deg), but because math functions require radians as input, we need to convert the angle from degrees to radians first.
-  // To find y, the formula is radius * sin (deg)
-
-  return { x: r * Math.cos(rad), y: r * Math.sin(rad) };
+  return { x: r * Math.cos(rad), y: r * Math.sin(rad) }; // To find x, the formula is radius * cos (deg) and   // To find y, the formula is radius * sin (deg), but because math functions require radians as input, we need to convert the angle from degrees to radians first.
 }
 
 // now drawing ticks with points
