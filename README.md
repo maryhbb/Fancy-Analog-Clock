@@ -5,7 +5,7 @@
 
 ## Demo
 
-https://github.com/maryhbb/Fancy-Analog-Clock
+https://maryhbb.github.io/Fancy-Analog-Clock/
 
 
 ## Screenshot
