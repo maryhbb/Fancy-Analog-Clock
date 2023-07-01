@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "serve": "webpack serve --mode development"
+    "serve": "webpack serve --mode development",
+    "check-format": "npx --yes prettier -c ."
   },
   "repository": {
     "type": "git",
@@ -18,11 +19,11 @@
   },
   "homepage": "https://github.com/maryhbb/Fancy-Analog-Clock#readme",
   "devDependencies": {
-    "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.1",
-    "style-loader": "^3.3.2",
-    "webpack": "^5.82.1",
-    "webpack-cli": "^5.1.1",
-    "webpack-dev-server": "^4.15.0"
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
