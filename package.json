@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "serve": "webpack serve --mode development",
-    "check-format": "npx --yes prettier -c ."
+    "check-format": "npx --yes prettier -c .",
+    "format": "npx --yes prettier -w ."
   },
   "repository": {
     "type": "git",
