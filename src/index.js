@@ -72,7 +72,60 @@ for (let deg = 0; deg < 360; deg += 6) {
   drawText(deg);
 }
 
-// find current Time
+function drawHands() {
+  const svg = document.querySelector("svg");
+
+  const hourHand = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "line"
+  );
+  hourHand.id = "hour";
+  hourHand.setAttribute("x1", "0");
+  hourHand.setAttribute("y1", "0");
+  hourHand.setAttribute("x2", "0");
+  hourHand.setAttribute("y2", "-50");
+  hourHand.setAttribute("stroke", "#333");
+  hourHand.setAttribute("stroke-width", "7");
+
+  const minuteHand = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "line"
+  );
+  minuteHand.id = "minute";
+  minuteHand.setAttribute("x1", "0");
+  minuteHand.setAttribute("y1", "0");
+  minuteHand.setAttribute("x2", "0");
+  minuteHand.setAttribute("y2", "-70");
+  minuteHand.setAttribute("stroke", "#888");
+  minuteHand.setAttribute("stroke-width", "5");
+
+  const secondHand = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "line"
+  );
+  secondHand.id = "second";
+  secondHand.setAttribute("x1", "0");
+  secondHand.setAttribute("y1", "0");
+  secondHand.setAttribute("x2", "0");
+  secondHand.setAttribute("y2", "-80");
+  secondHand.setAttribute("stroke", "red");
+  secondHand.setAttribute("stroke-width", "3");
+
+  const circle = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "circle"
+  );
+  circle.setAttribute("cx", "0");
+  circle.setAttribute("cy", "0");
+  circle.setAttribute("r", "5");
+  circle.setAttribute("fill", "#888");
+  circle.setAttribute("stroke", "#333");
+  circle.setAttribute("stroke-width", "2");
+
+  svg.append(hourHand, minuteHand, secondHand, circle);
+}
+
+drawHands();
 
 const hourEl = document.querySelector("#hour");
 const minuteEl = document.querySelector("#minute");
@@ -91,5 +144,7 @@ function updateClock() {
   minuteEl.style.transform = `rotate(${minuteDeg}deg)`;
   secondEl.style.transform = `rotate(${secondDeg}deg)`;
 }
+
+updateClock();
 
 setInterval(updateClock, 1000);
